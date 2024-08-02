@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts List</title>
+</head>
+<body>
+<h1>Posts</h1>
+<a href="/posts/create">Create New Post</a>
+<ul>
+    <% posts.forEach(post => { %>
+        <li>
+            <h2><%= post.title %></h2>
+            <p><%= post.description %></p>
+            <a href="/posts/<%= post.id %>">View Post</a>
+            <a href="/posts/update/<%= post.id %>">Edit</a>
+            <form action="/posts/delete/<%= post.id %>" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    <% }) %>
+</ul>
+</body>
+</html>

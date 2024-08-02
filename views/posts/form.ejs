@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post ? 'Edit Post' : 'Create Post' %></title>
+</head>
+<body>
+<h1><%= post ? 'Edit Post' : 'Create Post' %></h1>
+<form action="<%= post ? `/posts/update/${post.id}` : '/posts/create' %>" method="post">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" value="<%= post ? post.title : '' %>" required>
+    <br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required><%= post ? post.description : '' %></textarea>
+    <br>
+    <button type="submit"><%= post ? 'Update Post' : 'Create Post' %></button>
+</form>
+<a href="/posts">Back to List</a>
+</body>
+</html>
